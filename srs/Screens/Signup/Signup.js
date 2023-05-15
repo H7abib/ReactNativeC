@@ -1,5 +1,5 @@
 import React, { createContext, useCallback, useEffect, useMemo, useReducer, useRef, useState } from "react";
-import styles from './Styles';
+import styles from "../Signup/Styles";
 import { Text, View, ImageBackground, Image, TouchableOpacity, ScrollView, TextInput, Pressable } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import Feather from 'react-native-vector-icons/Feather';
@@ -32,6 +32,7 @@ const App = () => {
 	const [toggleCheckBox, setToggleCheckBox] = useState(false)
 
 	const checkConfirmPassword = (value) => {
+
 		setPassword2(value)
 		if (value !== password) {
 			setConfirmPasswordError(true)
@@ -40,9 +41,9 @@ const App = () => {
 			setConfirmPasswordError(false)
 		}
 	}
-const submit=()=>{
-	console.log("submit");
-}
+	const submit = () => {
+		console.log("submit");
+	}
 	return (
 		<View style={styles.Background}>
 
@@ -156,7 +157,7 @@ const submit=()=>{
 							<Feather name={"eye-off"} size={15} style={{ alignSelf: 'center', marginHorizontal: 20 }} onPress={() => setSecurePassword(!securePassword)} />
 					}
 				</View>
-				{confirmPasswordError&&<Text style={styles.errorMes}>Error in retype password</Text>}
+				{confirmPasswordError && <Text style={styles.errorMes}>Error in retype password</Text>}
 
 				<View style={styles.Check} >
 					<CheckBox
@@ -172,7 +173,7 @@ const submit=()=>{
 				</View>
 
 				<View style={styles.NamesView}	>
-					<Pressable style={[styles.button,!toggleCheckBox&&{backgroundColor:'gray'}]} onPress={()=>toggleCheckBox&&submit()}>
+					<Pressable style={[styles.button, !toggleCheckBox && { backgroundColor: 'gray' }]} onPress={() => toggleCheckBox && submit()}>
 						<Text style={styles.buttonText}>Submit</Text>
 					</Pressable>
 
